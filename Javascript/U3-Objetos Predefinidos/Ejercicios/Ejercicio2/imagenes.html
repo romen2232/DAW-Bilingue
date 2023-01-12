@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes</title>
+</head>
+<body>
+    <img id="img1" src="https://i.ytimg.com/vi/8_LUguSpqzs/maxresdefault.jpg" width="200px"> <p id="ruta0"></p> <br>
+    
+    <img id="img2"src="https://production.listennotes.com/podcasts/el-podcast-m%C3%A1s-random-del-mundo-L6I3Ep9lRTB-xB_PCg0EDch.1400x1400.jpg"width="200px"> <p id="ruta1"></p> <br>
+     
+    <img id="img3"src="https://i.redd.it/x3acqgfg67m71.jpg"width="200px"> <p id="ruta2"></p> <br>
+    
+    <img id="img4"src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Dibujo_random_xd.png"width="200px"> <p id="ruta3"></p> <br>
+    
+    <img id="img5"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRubQH1F3DZWpm3WYs5SKpQBSH_ocCYenGjkA&usqp=CAU"width="200px"> <p id="ruta4"></p> 
+    <script>
+       document.title="Pagina para trabajar con el objeto document";
+            let array = document.images;
+            for(let i = 0; i<array.length ;i++){
+                let rutas= document.getElementById("ruta"+i);
+                rutas.innerHTML='Imagen '+(i+1)+': <a href="#">'+array[i].src+'</a>';
+            }
+            
+            //Esto está bien pero lo haremos también de otra forma
+            document.getElementById("ruta0").innerHTML="nuevo texto";
+            
+            //ahora usando la funcion document.getElementsByTagName
+            let array2 = document.getElementsByTagName("p");
+            array2[1].innerHTML="OTRO TEXTO";
+    
+            document.writeln(document.domain);
+            document.write(document.URL);
+    </script>
+</body>
+</html>

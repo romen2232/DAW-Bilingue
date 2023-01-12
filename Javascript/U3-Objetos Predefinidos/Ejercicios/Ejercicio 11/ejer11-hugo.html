@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+    <script>
+        function seleccion(desple){
+            let pos = desple.selectedIndex;
+            var elec = desple.options[pos].value;
+            var usu = document.getElementById('texto').value;
+            var subcadena = document.getElementById('subcadena').value;
+            cont_vo = 0;
+            //Busqueda de vocal. Parte a       
+            for (let i = 0;i<usu.length;i++){
+                let letra = usu.charAt(i);
+                if (letra == elec){
+                    cont_vo++;
+                }
+            }
+
+            //otra version con expresiones regulares       	
+        	var expre = new RegExp(elec,"g");
+       		var veces = usu.match(expre);
+            alert(veces+" y veces.length: "+veces.length );
+
+
+
+
+            //apartado b
+            var cade = "";
+            for (let e = 0;e<usu.length;e++){
+                cade += usu.charAt(e)+"["+e+"]";
+            }
+
+
+            //apartado c sin terminar
+            //pos ahora es la posicion de la primera ocurrencia
+            pos = usu.toLowerCase().search(subcadena.toLowerCase());
+
+
+            //apartado d
+            var usu1 = usu.replace(subcadena,"dwec");
+            //apartado e
+            var cadena_re = usu1.toLowerCase().replace("dwec","");
+            
+            final = cadena_re.concat(" "+subcadena+" ").concat(elec);
+            document.getElementById('resul').innerHTML = "<p>El texto "+usu+": contiene "+cont_vo+" '"+elec+"'</p> <p>"+cade+"</p>"+"<p>Cadena con subcadena convertida: "+usu1+"</p>"+"<p>cadena 'dwec' eliminada: "+cadena_re+"</p><p> CADENA FINAL: "+final;
+            
+        }    
+    </script>
+    <section>
+        <form action="#" method="post" name="formulario">
+            <input type="text" name="user" placeholder="cadena" id = "texto"/>
+            <select onchange="seleccion(this)" name="select">
+                <option></option>
+                <option>a</option>
+                <option>e</option>
+                <option>i</option>
+                <option>o</option>
+                <option>u</option>
+            </select><br>
+            <input type="text" id = "subcadena" placeholder="subcadena">
+        </form>
+        <p id="resul"></p>
+    </section>
+
+</body>
+
+</html>

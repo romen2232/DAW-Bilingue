@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="numeros" required>
+        <input type="submit" value="Calcular" onclick="calcular()">
+        </form>
+    <script>
+        function calcular() {
+            //cadena con lo de el usuario
+            cadena = document.getElementById('numeros').value;
+            //separamos los numeros por la ,
+            if (cadena !=""){
+                array = cadena.split(",");               
+                final = [];
+                final1 = [];
+                final2 = [];
+                final3 = [];
+                /*for*/
+                for (let i=0;i<array.length;i++){
+                    final.push(array[i]*2);
+                }
+                alert(final);
+                
+
+                /*for in*/
+                for (let num in array ){
+                    final1.push(array[num]*2);
+                }
+                alert(final1);
+                
+
+                /*for of*/
+                for (let num of array ){
+                    final2.push(num*2);
+                }
+                alert(final2);
+                
+
+                /*Usando el map*/
+                final3 = array.map(function(x){
+                    return x*2;
+                })
+   
+                alert(final3);
+            }else{
+                alert("Introduce un numero");
+            }
+        }
+    </script>
+    
+</body>
+</html>

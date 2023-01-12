@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" id="dni" placeholder="DNI/NIF" required>
+        <input type="submit" value="Enviar" onclick="checkdni()">
+    </form>
+    <script>
+        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K','E', 'T'];
+        function checkdni(){
+            //Guardamos los que nos ha introducido el usuario y definimos la expresion regular
+            let dni = document.getElementById('dni').value;
+            let ex = /^[0-9]{8}[A-Z]{1}$/
+            //Comprobamos si la cadena cumple la expresion
+            if(ex.test(dni)) {
+                //obtenemos solo los numeros y comprobamos que esten dentro de un rango
+                let numeros = dni.charAt(0);
+                for (let i=1;i<dni.length-1;i++){
+                    numeros+=dni.charAt(i);
+                } 
+                //Tambien lo podriamos haber hecho como
+                // numeros=dni.substring(0,7);
+
+                if (parseInt(numeros) >0 && parseInt(numeros)<99999999){
+
+                    //verificamos que la letra calculada con los numeros y la de el usuario coincidan
+                    if (dni.charAt(dni.length-1)==letras[numeros%23].toUpperCase()){
+                        alert("La letra de su DNI es correcta");
+                    }else{
+                        alert("La letra de su DNI no es correcta");
+                    }
+                    
+                }else{
+                    alert("Los numeros introducidos exceden los rangos");
+                }
+                
+                
+            }else{
+                alert("El DNI es incorrecto introduzca 8 digitos y una letra");
+            }
+
+        }
+        
+
+    </script>
+    
+</body>
+</html>

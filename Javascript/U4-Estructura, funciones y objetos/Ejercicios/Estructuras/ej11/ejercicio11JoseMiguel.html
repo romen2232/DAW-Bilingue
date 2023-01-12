@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio11js</title>
+</head>
+<body>
+    <script>
+        const matriculas = new Map();
+
+        matriculas.set("Juan", ["DIW", "DWEC"]);
+        matriculas.set("Ana", ["DIW", "DWES", "DWEC", "Ingles"]);
+        matriculas.set("Maria", ["DIW", "DWES", "DAWEB", "BBDD", "Ingles"]);
+        matriculas.set("Pepe", ["DWES", "DWEC"]);
+        matriculas.set("Eva", ["DIW", "DAWEB", "SI"]);
+
+        //mostramos cuantos alumnos estan matriculados en DIW
+        let alumnosMDiw = 0;
+        for(let alumnos of matriculas.values()){
+            if(alumnos.includes("DIW")){
+                alumnosMDiw++;
+            }
+        }
+
+
+
+        document.write("<p>El numero de alumnos matriculados en DIW es: "+alumnosMDiw+"</p>");
+
+        //meter en un conjunto con los modulos en los que se han matriculado los alumnos
+
+        const modulosS = new Set();
+
+        for (let modulos of matriculas.values()){
+            for (let modulo of modulos){
+                modulosS.add(modulo);
+            }
+        }
+
+        document.write("<p> Los modulos de los que se han matriculado los alumnos son : "+[...modulosS]+"</p>");
+
+        //indicamos el numero total de modulos
+        let cantidadM = modulosS.size;
+
+        document.write("<p> Esta es la cantidad total de modulos: "+cantidadM+"</p>");
+
+        //obtenemos los modulos qe tienen en comun maria y eva
+
+        const maria = new Set();
+        const eva = new Set();
+
+        for (let modulos2 of matriculas.get("Maria")){
+            maria.add(modulos2);
+        }
+        //Otra forma para obtener conjunto del array de matriculas de Maria
+        const maria2=new Set(matriculas.get("Maria"));
+
+
+        for (let modulos3 of matriculas.get("Eva")){
+            eva.add(modulos3);
+        }
+
+        let intersection = new Set([...maria].filter(x => eva.has(x)));
+
+        document.write("<p>Estos son los modulos en comun de Maria y Eva: "+[...intersection]+"</p>");
+
+    </script>
+</body>
+</html>

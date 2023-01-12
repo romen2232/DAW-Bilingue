@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 10 Objetos</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function Calculator(){ // Creamos la funcion constructura
+
+	this.read = function (){ // Metodo read, pide 2 valores usando prompt y guarda las propiedades
+		this.a = +prompt("Introduce el valor");
+		this.b = +prompt("Introduce el valor"); 
+	}
+
+	this.sum = function (){ // Metodo sum, devuelve la suma de las propiedades
+		return this.a + this.b;
+	}
+
+	this.mult = function (){ // Metodo mult, devuelve el producto de las propiedades
+		return this.a * this.b;
+	}
+
+}
+
+const calculator = new Calculator(); // Creamos el item
+calculator.read(); // Llamamos a la funcion read para leer las propiedades
+alert(calculator.sum()); // Llamamos a la funcion sum para sumarlas
+alert(calculator.mult()); // Y a la funcion mult para multiplicarlas
+</script>
+</body>
+</html>

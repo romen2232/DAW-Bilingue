@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 14 Mapas</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var mySet = new Set().add('foo').add('bar').add('foobar'); // Declaramos el conjunto SET
+
+//FUNCION PARA CONVERTIR A MAYUSCULAS
+function mayusculas(e){
+	return e.toUpperCase() ;
+}
+//USO DE ARRAY.MAP PARA MODIFICAR, USAMOS EL CALLBACK MAYUSCULAS
+mySet = new Set( [ ...mySet ].map(mayusculas));
+
+//Reducido al maximo sería 
+//mySet = new Set( [ ...mySet ].map( ele => ele.toUpperCase() ) );
+
+//Muestro por pantalla
+mySet.forEach(element => console.log(element));
+
+//ME QUEDO SOLO CON LOS QUE TIENEN MENOS DE 4 LETRAS
+mySet = new Set( [ ...mySet ].filter( ele => ele.length < 4 ) );
+//Muestro por pantalla
+mySet.forEach( ele => console.info( ele ) );
+
+
+</script>
+</body>
+</html>

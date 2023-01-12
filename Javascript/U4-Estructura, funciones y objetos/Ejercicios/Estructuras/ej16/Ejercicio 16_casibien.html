@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function enviar() {
+
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+            let numero = document.getElementById("num").value;
+            let letra = document.getElementById("letra").value;
+            letra = letra.toUpperCase();
+            let er = /\d{8}/;
+
+            if (er.test(numero)) {
+                if (numero < 0 || numero > 99999999) {
+                    alert("El número no es válido");
+
+                }else{
+                    var letraFinal = letras[numero % 23];
+                    if (letraFinal != letra) {
+                        alert("La letra o el número no son correctos");
+                    }
+                    else{
+                        alert("El número de DNI y su letra son correctos");
+                    }
+                }
+            } else {
+                
+                alert("Pon un numero de 8 digitos");
+            }
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+    <form>
+        <input type="text" id="num" placeholder="Numero de DNI">
+        <input type="text" id="letra" placeholder="Letra de DNI">
+        <input type="button" onclick="enviar()" value="Enviar">
+    </form>
+
+</body>
+
+</html>

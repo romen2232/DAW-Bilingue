@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio9</title>
+    <script>
+        let menu = {
+            width: 200,
+            height: 300,
+            title: "Mi menú"
+        };
+
+        let multiplica = obj => {
+            for (let clave of Object.keys(obj)) {
+                if (typeof(obj[clave])=="number") {
+                    obj[clave] = obj[clave]*2;
+                }
+            }
+        }
+        console.log("Antes de Multiplicar, " + menu.width + " ," + menu.height);
+        multiplica(menu);
+
+        console.log("Despues de Multiplicar, " + menu.width + " ," + menu.height);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

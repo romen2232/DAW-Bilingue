@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 5 Formulario</title>
+	<script type="text/javascript">
+		function ejer5(){
+			var form1 = document.getElementById("form1");
+			let num = form1.length; //número de elementos
+			//
+			//var target = form1.action;
+			//var valores = form1.elements;
+			var p = document.getElementById("demo");
+			p.innerHTML += num+'<br/>';
+
+			for (let i=0;i<num;i++){
+				if (form1.elements[i].type=="text"){
+					p.innerHTML+=form1.elements[i].name;
+					p.innerHTML+=' ';
+					p.innerHTML+=form1.elements[i].value;		
+					p.innerHTML+="<br/>";
+				}
+			}
+			p.innerHTML+="El nombre del formulario es "+form1.name;
+			p.innerHTML+="El target del formulario es "+form1.target;
+			//+' '+nombre+' '+target+' '+valores;	
+		}
+	</script>
+</head>
+<body>
+	<form id="form1" name="form1" action="/action_page.php">
+		Nombre: <input type="text" name="nombre" value="Jorge"><br>
+		Apellido: <input type="text" name="apellido" value="Espinosa"><br><br>
+		<input type="submit" name="Submit">
+	</form>
+	<p>Haz click en "Probar" para mostrar cada elemento en el formulario.</p>
+	<button onclick="ejer5()">Probar</button>
+	<p id="demo"></p>
+
+	
+</body>
+</html>

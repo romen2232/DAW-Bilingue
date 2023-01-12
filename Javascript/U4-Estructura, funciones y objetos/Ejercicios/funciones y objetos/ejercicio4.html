@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4js</title>
+   <script>
+
+        celsiusFahre = () =>{
+            let numero = parseInt(document.getElementById("numeros").value);
+          
+            window.alert("estos son los grados celsius en fahrenheit: "+(numero + 32));
+        }
+
+        Fahrecelsius = () =>{
+            let numero = parseInt(document.getElementById("numeros").value);
+            let result = numero - 32;
+            window.alert("estos son los grados fahrenheit en celsius: "+result);
+        }
+
+   </script> 
+</head>
+<body>
+    <form >
+        <input type="text" id="numeros"/>
+        <input type="submit" onclick="celsiusFahre()" value="celsius a fahrenheit"/>
+        <input type="submit" onclick="Fahrecelsius()" value="al reves"/>
+    </form>
+</body>
+</html>

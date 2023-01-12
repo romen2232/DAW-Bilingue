@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio13JS</title>
+    <script>
+        var parrafo = document.getElementById("resultado");
+        function CambioBase(){
+            let numero = prompt("Introduce un numero:");
+            let base = prompt("Introduce en qué pase está:");
+            let base2 = Math.floor(Math.random() * 37);
+            //let base2=2;
+            let decimal=parseInt(numero,base); //cambia un numero en una base a decimal
+            let solucion=Number(decimal.toString(base2)); //cambia un numero decimal a una base
+            document.getElementById("resultado").innerHTML+=`El número ${numero} pasado en base ${base} es ${decimal} en decimal<br>`
+            document.getElementById("resultado").innerHTML+=`El número ${decimal} pasado a base ${base2} es ${solucion}`;
+           
+        }
+
+        function BinToDecimal(){
+            let binario = prompt("introduce un numero binario: ");
+
+            let decimal = parseInt(binario,2);
+            document.getElementById("resultado").innerHTML+=`El número binario ${binario} es ${decimal} en decimal<br>`;
+            
+        }
+
+        function Significativos(){
+            
+            let result;
+            let parar=false;
+            let numero;
+            do{
+                numero = Number(prompt("Introduce un numero:"));
+                if (numero >=1000000){
+                    result=numero.toPrecision(3);
+                    parar=true;
+                }
+                else if (numero>0 && numero<1){
+                    result=numero.toPrecision(2);
+                    parar=true;
+                }
+            } while (!parar);
+
+            document.getElementById("resultado").innerHTML+=`El resultado es ${result} <br>`
+
+        }
+        
+         function Decimales(){
+            
+            let result;
+            let check;
+            let parar=false;
+            let numero;
+            do{
+                numero =prompt("Introduce un numero:");
+                check =/\d*\.\d{4}/;
+                if (check.test(numero)){
+                    //hacemos el toFixed
+                    result=Number(numero).toFixed(2);
+                    parar=true;
+                }
+                else{
+                    alert("Numero invalido");
+                }
+                
+            } while (!parar);
+
+            document.getElementById("resultado").innerHTML+=`El resultado es ${result} <br>`
+
+        }
+        
+    </script>
+</head>
+<body>
+
+    <button type="button" onclick="CambioBase()">Cambiar número</button>
+    <button type="button" onclick="BinToDecimal()">Cambiar decimal</button>
+    <button type="button" onclick="Significativos()">Significativos</button>
+    <button type="button" onclick="Decimales()">Decimales</button>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+    <script>
+        let contadorLog = 0;
+        const map = new Map();
+        map.set("user1", [contadorLog]);
+
+        map.set("user2", [contadorLog]);
+
+        map.set("user3", [contadorLog]);
+
+        map.set("user4", [contadorLog]);
+
+        map.set("user5", [contadorLog]);
+
+        function login() {
+            let user = document.getElementById("user").value;
+            for (let i of map.keys()) {
+                if (user == i) {
+                    if (map.get(user)[0] == 0) {
+                        map.set(user, [contadorLog, new Date()]); //Asignamos una fecha nueva si no ha sido logueado por primera vez
+                    }
+                    map.get(i)[0] += 1; //Añadimos 1 al contador de logueos
+                }
+            }
+            alert("Logueo correcto!")
+            user = "";
+        }
+        function comprobarLog() {
+            let mayor = 0;
+            let cadMayor = "";
+            for (let i of map.keys()) {
+                if (map.get(i)[0] > mayor) { //Asi comprobamos quien es el que mas logueos tiene
+                    mayor = map.get(i)[0];
+                    cadMayor = "El usuario " + i + " tiene " + map.get(i)[0] + " logins";
+                }
+            }
+            alert(cadMayor);
+        }
+        function deleteUser() {
+            let mayor = 0;
+            let delUser="";
+            for (let i of map.keys()) {
+                if (map.get(i)[0] != 0) { //Comprobamos que el usuario no esta logueado
+                    if (map.get(i)[1].getMilliseconds() > mayor) { //Hacemos justo lo contrario, porque el que mas tiempo lleve logueado es el que mas tiempo tiene en su fecha
+                        mayor = map.get(i)[1].getMilliseconds();
+                        delUser = i;
+                    }
+                }
+            }
+            console.log(delUser + " " + mayor)
+            map.delete(delUser); //Borra el usuario
+            alert("El usuario " + delUser + " ha sido eliminado")
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="user" placeholder="User">
+    <button id="login" onclick="login()">Login</button>
+    <button onclick="comprobarLog()">Comprobar Logins</button>
+    <button onclick="deleteUser()">Eliminar usuario con mas logins</button>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+    <h1>Ejercicio 12 elminar numeros repetidos</h1>
+	<input type="text" id="numeros">
+    <input type="submit" value="Ejecutar" onclick="calcular()">
+    <script>
+        function calcular() {
+            //cadena con lo de el usuario
+            var cadena = document.getElementById('numeros').value;
+            //separamos los numeros por la ,
+            var array = cadena.split(",");
+            //usamos el metodo Set para eliminar los elementos repetidos del array
+			const sin_repetidos = new Set(array);
+            //Lo transformamos en array
+			let final = Array.from(sin_repetidos);
+            //ordenar array final 
+            final.sort((a,b)=>a-b);
+           
+            //lo devolvemos
+			alert(final);
+        }
+    </script>
+</body>
+</html>

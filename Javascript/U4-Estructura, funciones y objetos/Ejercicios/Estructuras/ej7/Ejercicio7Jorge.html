@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 7 Arrays</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const datos = [5, 1, 2, 2, 3, 3, 5, 2,5,1]; // declaramos el array
+      const datos_final = datos.filter((item, index) => { 
+        // crea nuevo array con aquellos elementos que cumplen la condicion
+        return datos.indexOf(item) === index; // indexOf devuelve el primer indice donde se encuentre el elemento
+        // cuando el index no es igual al index of del item 
+      })
+ 
+      datos_final.sort(function (a, b) {
+            return a - b;
+        });
+        document.write(datos_final); // imprime el array final
+
+    </script>
+  </body>
+</html>

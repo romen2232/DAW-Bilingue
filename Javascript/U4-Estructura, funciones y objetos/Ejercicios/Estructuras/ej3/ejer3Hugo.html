@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+    <h1>Ejercicio 3: Concatenar Arrays de igual longitud</h1>
+    <p>Introduce los numeros separados por comas</p>
+    <input type="text" id="array1"><br>
+    <p>Introduce los segundos numeros generados por comas o pulsa para generar aleatoriamente</p>
+    <input type="text" id="array2">
+    <input type="submit" required onclick="aleatorio()" value="Aleatorio"><br>
+    <input type="submit" onclick="concatenar()" value="Concatenar"><input type="submit" onclick="reiniciar()" value="Reiniciar">
+    <p id ="resultado"></p>
+
+    <script>
+        /**
+         * Función que obtiene un array aleatrio de elementos
+         **/
+        function aleatorio(){
+            //OBTENEMOS el primer array
+            array1 = document.getElementById("array1").value.split(",");
+            //definimos el string que va a contenener los elementos del segundo array
+            final = "";
+            for (var i = 0; i < array1.length; i++){
+                if (i!=0){
+                    final+= ","+Math.round((Math.random()*100));
+                }else{
+                    final+= Math.round((Math.random()*100));
+                }
+            }
+            document.getElementById("array2").value = final;
+        }
+
+        /**
+         * Función que concatena dos arrays de forma entrelazada
+         * */
+        function concatenar(){
+            array1 = document.getElementById("array1").value.split(",");
+            array2 = document.getElementById("array2").value.split(",");
+            if (array1.length == array2.length){
+                array_final = [];
+                for (let i=0;i<array2.length;i++){
+                    array_final.push(array1[i]);
+                    array_final.push(array2[i]);
+                }
+               
+                document.getElementById('resultado').innerHTML =  "Array concatenados:\n"+array_final;
+            }else{
+                alert("Array con la misma longitud");
+            }
+        }
+
+        /**
+         * 
+         * función para reiniciar los input
+         * 
+         * **/         
+         function reiniciar(){
+            document.getElementById("array2").value = "";
+            document.getElementById("array1").value = "";
+        }        
+    </script>
+</body>
+</html>

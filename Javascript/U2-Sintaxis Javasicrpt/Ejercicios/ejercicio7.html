@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            font-family: monospace;
+        }
+    </style>
+    <title>Ejercicio7</title>
+</head>
+
+<body>
+    <script>
+        let num = parseInt(window.prompt("Introduce un numero entero positivo"));
+        if (isNaN(num) || num < 1) {
+            alert("Numero no valido");
+        } else {
+            let contador = 0;
+            let row = 1;
+            for (let i = 0; i < num; i++) {
+                if (contador == row) {
+                    document.write("<br>")
+                    contador = 0;
+                    row++;
+                }
+                contador++;
+                document.write("*");
+            }
+        }
+    </script>
+</body>
+
+</html>

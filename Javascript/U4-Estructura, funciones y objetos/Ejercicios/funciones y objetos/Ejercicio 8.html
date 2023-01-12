@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let salarios = {
+
+            persona1: 1500,
+            persona2: 2500,
+            persona3: 3500,
+            persona4: 4500,
+            persona5: 5500,
+
+        }
+
+
+        salarios.total = function () {
+            let totalS = 0;
+            for (let i in salarios) {
+
+                totalS = totalS + salarios[i];
+
+            }
+            return parseInt(totalS);
+
+        };
+
+        document.write(salarios.total());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

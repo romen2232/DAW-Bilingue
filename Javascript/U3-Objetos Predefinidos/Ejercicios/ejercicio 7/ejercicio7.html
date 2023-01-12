@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+    <script>
+        function mostrar(){
+            var form1 = document.getElementById("form1");
+            var parrafo = document.getElementById("parrafo");
+
+            for(let i=0; i<form1.length; i++){
+                if(form1.elements[i].type=="checkbox" && form1.elements[i].checked){
+                    parrafo.innerHTML+= "has pulsado el: ";
+                    parrafo.innerHTML+=form1.elements[i].value;
+                    parrafo.innerHTML+="<br/>"
+                }
+            }
+        }
+
+        function alertaR(){
+            var x = document.getElementById("rojo");
+            if(x.checked){
+                alert("Esta activado");
+            }else{
+                alert("Esta desactivado");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form id="form1" action="" method="get">
+        <input type="checkbox" onchange="alertaR()" id="rojo" name="rojo" value="rojo"/>rojo
+        <input type="checkbox" id="verde" name="verde" value="verde"/>verde
+        <input type="checkbox" id="azul" name="azul" value="azul"/>azul<br><br>
+    </form>
+    <button onclick="mostrar()">Dale para mostrar</button>
+    <p id="parrafo"></p>
+</body>
+</html>

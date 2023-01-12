@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 9 Formulario</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+	let num1 = prompt("Dime un numero");
+
+	function num() {
+		let pos = formulario.numeros.selectedIndex;
+		let num2 = formulario.numeros.options[pos].value;
+		let result = (num1 * num2);
+		var p1 = '';
+		p1 += result;
+		document.getElementById("solucion").innerHTML = "El resultado es: "+p1;
+	}
+	</script>
+	<form id="formulario" action="pagina.php">
+		<p>
+			<label for="numeros">Selecciona un numero: </label>
+			<select name="numeros" id="numeros" onchange="num()">
+				<option value=""></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</p>
+		<p id="solucion"></p>
+	</form>
+</body>
+
+</html>

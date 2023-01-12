@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio12</title>
+    <script>
+        function cifrar(e){
+            e.preventDefault();
+            let texto = new String(document.getElementById("texto").value); //Convertimos el texto introducido en un objeto String
+            let textoCifrado=""; //Creamos una cadena vacia
+            let cifrado=parseInt(document.getElementById("cifrado").value);
+            for(let i =0;i<texto.length;i++){
+                textoCifrado+=String.fromCharCode(texto.charCodeAt(i)+cifrado);//Este metodo añade al string vacio el caracter en la posicion ASCII deseada
+            }
+            let resultado=document.createElement("p");
+
+            resultado.innerHTML=textoCifrado;
+
+            document.body.appendChild(resultado);
+        }
+        document.addEventListener("submit",cifrar);
+    </script>
+</head>
+<body>
+    <form >
+        <input type="text" name="texto" id="texto" placeholder="Introduce un texto">
+        <input type="text" name="cifrado" id="cifrado" placeholder="Introduce un valr de cifrado">
+        <input type="submit" value="Cifrar">
+    </form>
+</body>
+</html>

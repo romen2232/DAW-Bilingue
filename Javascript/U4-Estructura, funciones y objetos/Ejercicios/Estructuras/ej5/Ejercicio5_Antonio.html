@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function calcular(){
+
+        let nuevoArray=[];
+        let cadena=document.getElementById("cadenaTexto").value;
+        nuevoArray= cadena.split(' ');
+
+        console.log("a. Primera palabra: "+nuevoArray[0]);
+        console.log("b. Ultima palabra: "+nuevoArray[nuevoArray.length-1]);
+
+        let reverso= nuevoArray.reverse();
+        
+        console.log("c. Palabras orden inverso: "+reverso);
+
+        /**
+         * COMPARADOR: Ordenamos sin tener en cuenta las mayúsculas
+         * */
+        nuevoArray.sort(function (a, b) {
+            return a.toLowerCase().localeCompare(b.toLowerCase());
+        });
+
+            console.log("d. Palabras en orden de la 'a' a la 'z': "+nuevoArray);
+
+        nuevoArray.sort(function (a, b) {
+            return b.toLowerCase().localeCompare(a.toLowerCase());
+        });
+
+            console.log("e. Palabras en orden de la 'z' a la 'a': "+nuevoArray);
+               
+        
+        }
+
+
+</script>
+     
+</head>
+<body>
+
+    <form action="" method="get">
+        Introduce cadena de texto.
+        <br><br>
+        <input type="text" class="limpiar" id="cadenaTexto" name="numero" />
+        <br><br>
+        <input type="button" value="calcular"onclick="calcular()"></input>
+        </form>
+    
+</body>
+</html>

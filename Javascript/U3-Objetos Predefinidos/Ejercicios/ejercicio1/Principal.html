@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio1</title>
+</head>
+<body>
+    <button type="button" onclick="abrir()">Abrir</button>
+    <button type="button" onclick="cerrar()">Cerrar</button>
+    <button type="button" onclick="comprobar()">Comprobar</button>
+    <button type="button" onclick="Modificar()">modificar</button>
+    <button type="button" onclick="moodle()">Moodle</button><br>
+
+    <a href="#" onclick="cerrar()">Cerrar</a><br>
+    <a href="#" onclick="SPlano()">Segundo Plano</a><br>
+    <a href="#" onclick="Movida()">Vmovida</a><br>
+    <a href="#" onclick="CTamaño()">Cambiar Tamaño</a><br>
+    <a href="#" onclick="Mover()">Mover barra</a><br>
+
+    <script>
+        var ventananueva;
+        function abrir(){
+            ventananueva = window.open("","","heigth=800, width=600");
+        }
+        function cerrar(){
+            ventananueva.close();
+        }
+        function comprobar(){
+            (ventananueva.closed) ? alert("La ventana esta cerrada") : alert("La ventana esta abierta");
+        }
+        function Modificar(){
+           //Será en auxiliar donde hagamos el prompt y el cambio
+            ventananueva = window.open("auxiliar.html","titulo","heigth=800","width=600");
+           
+        }
+        function moodle(){
+            if (window.confirm("Quieres ir a Moodle?"))
+                ventananueva = window.open("https://educacionadistancia.juntadeandalucia.es/centros/granada/my/","","heigth=800","width=600"); //el resize o resizable está deprecated
+        }
+        function SPlano(){
+            ventananueva.blur();
+        }
+        function Movida(){
+             ventananueva.moveTo(300, 300);
+        }
+        function CTamaño(){
+            ventananueva.resizeTo(200,200);
+        }
+        function Mover(){
+            ventananueva.scroll(0,10);
+        }
+    </script>
+</body>
+</html>

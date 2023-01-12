@@ -1,0 +1,57 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+<h2>Ejercicio 1: Mayor, Menor y Media de Arrays</h2>
+<p id="parrafo">Introduce los números separados por comas</p>
+
+<input type="text" id="text"></input>
+<br><br><input type="button" value="Calcular" onclick="calcular()"></input>
+<input type="button" value="Reiniciar" onclick="Reiniciar()">
+<p id="array"></p>
+
+<p id="resultado"></p>
+
+<script>
+function Reiniciar(){
+location.reload();
+}
+
+function calcular(){
+var array = document.getElementById("text").value.split(/,/);
+
+var mayor=-Infinity,menor=+Infinity,suma=0,media=0;
+
+//SUMA
+for(i=0;i<array.length;i++){
+suma=parseInt(array[i])+suma;
+}
+
+//MEDIA
+media=suma/array.length;
+
+//MENOR
+for(i=0;i<array.length;i++){
+	if(parseInt(array[i])<menor) menor=array[i];
+}
+
+//MAYOR
+for(i=0;i<array.length;i++){
+	if(parseInt(array[i])>mayor) mayor=array[i];
+}
+
+
+//RESULTADO
+
+document.getElementById("resultado").innerHTML="La suma es:"+suma+"<br>"+
+											   "La media es:"+media+"<br>"+
+											   "El mayor es:"+mayor+"<br>"+
+											   "El menor es:"+menor+"<br>"
+
+}
+
+</script>
+
+</body>
+</html>

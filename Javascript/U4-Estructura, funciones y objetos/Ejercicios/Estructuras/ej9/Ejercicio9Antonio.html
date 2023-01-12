@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Enviar(e) {
+           
+            var texto = document.getElementById("demo");
+
+            let nuevoArray = [];
+
+
+            let cadena = document.getElementById("cadenaTexto").value;
+
+            //Aqui cojemos la palabra por cada espacio
+            nuevoArray = cadena.split(' ');
+
+
+            let longitud = nuevoArray.length;
+            console.log("Numero de palabras es: " + longitud);
+            var elemento="";
+            for (let i = 0; i < nuevoArray.length; i++) {
+                //i+" Longitud: "+nuevoArray.length+"<br/>");
+                elemento = nuevoArray[i];
+
+                if (elemento.length > 5) {
+                    
+                    document.getElementById("demo").innerHTML="APARTADO A Y B:La primera palabra con mas de 5 letras es: "+elemento+" en la posicion: "+(i+1)+"<br/>";
+
+                    //Aqui borro la palabra en la posicion de i ya que si ha entrado
+                    //en este bucle tiene mas de 5 letras
+                    nuevoArray.splice(i,1);
+                    i--;
+                }
+
+            }
+            //Esto es para separar el array por espacios;
+            var a=nuevoArray.join(" ");
+            document.getElementById("demo").innerHTML+="APARTADO C: Borra la palabra que tenga mas de 5 letras del array: "+a;
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+   
+        Introduce cadena de texto.
+        <br><br>
+        <input type="text" id="cadenaTexto" name="numero" />
+        <br><br>
+        <input type="button" value="calcular" onclick="Enviar()"></input>
+        
+ 
+
+    <p id="demo"></p>
+</body>
+
+</html>

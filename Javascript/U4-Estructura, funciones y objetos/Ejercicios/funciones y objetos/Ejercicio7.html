@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+let schedule = {};
+    // function isEmpty(schedule){
+
+        
+        
+
+    //         return Object.values(schedule).length==0;
+        
+       
+    // }
+
+    let isEmpty= (schedule) =>Object.values(schedule).length==0;
+    
+
+alert(isEmpty(schedule)); // true
+schedule["8:30"] = "Hora de levantarse";
+alert( isEmpty(schedule) ); // false
+</script>
+<body>
+    
+</body>
+</html>

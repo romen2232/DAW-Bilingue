@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Throw</title>
+</head>
+
+<body>
+    <p id="snake">SnakeEye(1_1)= </p>
+    <p id="six">Double six(6_6) = </p>
+    <p id="combinations"><br>Combinacion: </p>
+</body>
+<script>
+    let dice1 = [];
+    let dice2 = [];
+    let suma = [];
+    let combinations = new Set();
+    function diceThrow() {
+        let aleat1 = Math.floor(Math.random() * 6 + 1); //Numero aleatorio entre 1 y 6
+        let aleat2 = Math.floor(Math.random() * 6 + 1); 
+        dice1.push(aleat1);//Añadimos el numero a la siguiente posicion del array
+        dice2.push(aleat2);
+        suma.push(aleat1+aleat2); //Suma de ambos
+      //  let combinacion=new Set([aleat1,aleat2].sort());
+      let micombi=[aleat1,aleat2].sort();
+        combinations.add(micombi.toString());  //añadimos al set la combinacion
+    }
+    let snake = 0;
+    let six = 0;
+    for (let i = 0; i < 100; i++) {
+        diceThrow(); //Lanzamos el dado 100 veces
+        if ((dice1[i] && dice2[i]) == 1) { //Si sale dos 1 snake suma
+            snake++;
+        }
+        if ((dice1[i] && dice2[i]) == 6) {
+            six++;
+        }
+    }
+    
+    document.getElementById("snake").innerHTML += snake;
+    document.getElementById("six").innerHTML += six;
+   /* for (let combinacion of combinations) {
+        for (let valor of combinacion) 
+            document.getElementById("combinations").innerHTML += valor+"  ";
+        document.getElementById("combinations").innerHTML +="<br>";
+    }*/
+    for (let combinacion of combinations)
+        document.getElementById("combinations").innerHTML +="<br>"+combinacion ;
+
+</script>
+
+</html>

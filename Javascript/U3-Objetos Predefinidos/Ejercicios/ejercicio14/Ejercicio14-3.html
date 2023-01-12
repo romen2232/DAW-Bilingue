@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+        
+      var min = prompt("dime min");
+
+      min1= Number(min);
+      segundosO=min*60*1000;
+      //.toISOString()
+
+      var fechaInicio = new Date().getTime();
+      
+
+      var fechaFin= fechaInicio+segundosO;
+
+      var date1= new Date(fechaFin);
+
+      document.write("Date: "+date1.getDate()+
+          "/"+(date1.getMonth()+1)+
+          "/"+date1.getFullYear()+
+          " "+date1.getHours()+
+          ":"+date1.getMinutes()+
+          ":"+date1.getSeconds());;
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function reiniciar() {
+            //AQUI para limpiar el input
+            document.getElementById("numeros").value = "";
+
+
+        }
+
+        function calcular() {
+            const array = [];
+            let numero = document.getElementById("numeros").value;
+            console.log("El numero es:" + numero);
+
+            // nuevoArray.push(numero.value);
+            array = numero.split(",");
+
+            //Esto ordena de menor mayor
+            array.sort(function (a, b) {
+                return a - b;
+            });
+
+            let suma = 0;
+            let media = 0;
+            let numArray = 0;
+            let longitud = array.length;
+
+            //Esto para hacer la media
+            for (let a = 0; a < longitud; a++) {
+                //Aqui saco valores del array uno a uno
+                numArray = parseInt(array[a]);
+                suma += numArray;
+
+            }
+
+            media = suma / longitud;
+
+
+            console.log("El numero menor es:" + array[0]);
+            console.log("El numero mayor es:" + array[array.length - 1]);
+            console.log("La media es:" + media);
+        }
+
+
+    </script>
+</head>
+
+<body id="cuerpo">
+
+    <form action="" method="get">
+        Introduce los números separados por comas
+        <br><br>
+        <input type="text" id="numeros" name="numero" />
+        <br><br>
+        <input type="button" value="calcular" onclick="calcular()"></input>
+        <input type="button" value="reiniciar" onclick="reiniciar()"></input>
+    </form>
+
+
+
+</body>
+
+</html>

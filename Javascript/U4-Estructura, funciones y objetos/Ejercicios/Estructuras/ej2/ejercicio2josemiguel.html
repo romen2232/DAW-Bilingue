@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio2js</title>
+    <script>
+        const clasificacion1 = ["Ana","Oswaldo","Raul","Celia","Maria","Antonio"];
+        var final1 = document.getElementById("final1");
+        function mostrarC(){
+            final1 = document.write("<p>Primera Clasificacion:<p>");
+            
+            /*
+            * Mostramos la primera claificacion *
+            */
+            for (let i=0; i<clasificacion1.length; i++){
+                final1 = document.write("<p>"+(parseInt(i)+1)+"º puesto: "+clasificacion1[i]+" </p>");
+            }
+
+            /*
+            * cambiamos de posicion a celia y raul *
+            */
+            clasificacion1[2] = "Celia";
+            clasificacion1[3] = "Raul";
+
+            /*
+            * Eleiminamos la ultima posicion: Antonio *
+            */
+            clasificacion1.pop();
+
+            /*
+            * añadimos en la posicion 1 a Roberto y Amaya *
+            */
+            clasificacion1.splice(1,0, "Roberto", "Amaya")
+
+            /*
+            * Añadimos a Marta en la primera posicion *
+            */
+            clasificacion1.unshift("Marta");
+
+            final1 = document.write("<p>Segunda Clasificacion:</p>")
+
+            /*
+            * mostramos la segunda clasificacion con for..in*
+            */
+            for (let i in clasificacion1){
+                document.write("<p>"+(parseInt(i)+1)+"º Puesto: "+clasificacion1[i]+" </p>");
+            }
+            /*
+            * mostramos la segunda clasificacion con for..of*
+            */
+            let pos=1;
+            for (let persona of clasificacion1){
+                document.write("<p>"+pos+"º Puesto: "+persona+" </p>");
+                pos++;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form id="formulario">
+        <input type="button" value="Mostrar Clasificación" onclick="mostrarC()">
+    </form>
+</body>
+</html>
