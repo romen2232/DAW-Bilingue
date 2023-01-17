@@ -1,4 +1,4 @@
-var contenedor = document.getElementsByClassName("gallery-container")[0];
+var contenedor = document.getElementsByClassName("gallery-img");
 contenedor.addEventListener("click",function (e){
     var i = e.target;
     if (i.style.width  == "200px"){
