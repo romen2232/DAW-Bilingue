@@ -1,10 +1,23 @@
-var contenedor = document.getElementsByClassName("gallery-container")[0];
-contenedor.addEventListener("click",function (e){
-    var i = e.target;
-    if (i.style.width  == "200px"){
-        i.style.width  = "500px";
+var contenedor = document.querySelector(".gallery-container");
+/*contenedor.addEventListener("click",function (e){
+   console.log(e.target.style.width);
+   if(e.target.classList.contains('gallery-img')){
+    if (e.target.style.width  == "200px"){
+        e.target.style.width  = "500px";
     }else{
-        i.style.width  = "200px";
+        console.log("entro en el else")
+        e.target.style.width  = "200px";
     }
+   }
+});*/
 
-});
+contenedor.addEventListener('click', e => {
+    if(e.target.classList.contains('gallery-img')){
+        if (e.target.style.width  == "200px"){
+            e.target.style.width  = "500px";
+        }else{
+            console.log("entro en el else")
+            e.target.style.width  = "200px";
+        }
+    }
+  });
