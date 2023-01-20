@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Promise</h2>
+<!-- muestra la sintaxis de una promesa sencilla -->
+
+<p id="demo"></p>
+
+<script>
+
+/* función llamada por el consumidor de la promesa, es decir, cuando se recibe la respuesta*/
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+
+//Productor
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 0;
+
+// some code (try to change x to 5)
+
+  if (x == 5) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+//Consumidor
+myPromise.then(
+  function(valor) {myDisplayer(valor);},
+  function(error) {myDisplayer(error);}
+);
+</script>
+
+</body>
+</html>
