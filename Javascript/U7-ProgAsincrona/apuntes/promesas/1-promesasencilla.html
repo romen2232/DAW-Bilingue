@@ -9,19 +9,19 @@
   <script>
   /* función llamada por el consumidor de la promesa, 
   es decir, cuando se recibe la respuesta*/
-  function myDisplayer(some) {
-    document.getElementById("demo").innerHTML = some;
+  function myDisplayer(texto) {
+    document.getElementById("demo").innerHTML = texto;
   }
 
   //Productor
   let myPromise = new Promise(function(myResolve, myReject) {
-    let x = 0;
+    let x = 5;
   // .... (try to change x to 5)
 
     if (x == 0) {
-      myResolve("OK");
+      myResolve("OK"); //exito
     } else {
-      myReject("Error");
+      myReject("Error pepito"); //error
     }
   });
 

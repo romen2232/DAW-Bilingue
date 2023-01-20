@@ -12,24 +12,24 @@
 <script>
 //con callback
 // setTimeout(function() { 
-//     myFunction("I love You !!!"); 
+//     escribe("I love You !!!"); 
 // }, 3000);
 
-// function myFunction(value) {
+// function escribe(value) {
 //   document.getElementById("demo").innerHTML = value;
 // }
 
 
 //con promesa
 let myPromise = new Promise(function(myResolve, myReject) {
-    setTimeout(function() { 
+    setTimeout(() => { 
         myResolve("I love You !!"); 
     }, 5000);
 });
    
-myPromise.then(function(value) {
-        document.getElementById("demo").innerHTML = value;
-    });
+myPromise.then(
+    value => document.getElementById("demo").innerHTML = value
+    );
 </script>
 
 </body>
