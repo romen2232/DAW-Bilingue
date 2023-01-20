@@ -5,9 +5,9 @@ vamos a recibir una función con la respuesta de la petición.
 */
 
 //PETICIÓN GET
-fetch('https://jsonplaceholder.typicode.com/users/')
-    .then(respuesta => respuesta.json())
-    .then(json => console.log(JSON.stringify(json)));
+fetch('https://jsonplaceholder.typicode.com/users/1')
+    .then(respuesta => respuesta.json()) //recibimos en un objeto Response: el metodo Response.json() también devuelve una promesa
+    .then(json => console.log(JSON.stringify(json))); //resolución de la promesa anterior
 
 
 
@@ -54,8 +54,8 @@ fetch('https://jsonplaceholder.typicode.com/users/')
 * para evitar la excesiva anidacion de then
 * Ojo: no es compatible con todos los navegadores
 */
-async function getUser(name) { 
+/*async function getUser(name) { 
     let response = await fetch(`https://api.github.com/users/${name}`); 
     let data = await response.json();
     return data; 
-}
+}*/
