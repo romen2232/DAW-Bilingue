@@ -17,6 +17,7 @@ function loadScript(src) {
 //Consumimos la promesa  
 let promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
 
+
 promise.then(
   script => console.log(`${script.src} está cargado!`),
   error => console.error(`Error: ${error.message}`)
