@@ -52,7 +52,3 @@ buscarPeliculasId(1)
     }) 
     .catch((error) => console.error(error));
 
-myFunction().then(
-    function(value) { /* code if successful */ },
-    function(error) { /* code if some error */ }
-    );
