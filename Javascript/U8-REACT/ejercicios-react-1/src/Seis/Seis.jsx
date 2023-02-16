@@ -1,6 +1,5 @@
 import Input from './Input';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import React from 'react';
 
 function Seis() {
