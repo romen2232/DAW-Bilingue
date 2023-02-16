@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import BotonColor from './BotonColor';
+import Seis from './Seis';
+import Ejer8 from './Ejer8';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <BotonColor></BotonColor>
+      <Ej2></Ej2>
+      <Ej5></Ej5>
+      <Seis></Seis>
+      <Ejer8></Ejer8>
     </div>
   );
 }

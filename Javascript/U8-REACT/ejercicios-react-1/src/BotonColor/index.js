@@ -1,3 +1,3 @@
-import Boton from './Boton';
+import BotonColor from './BotonColor';
 
-export default Boton;
+export default BotonColor;
