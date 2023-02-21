@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>Esperando a un timeout</h2>
+
+<p>Wait 5 seconds (5000 milliseconds) for this page to change.</p>
+
+<h1 id="demo"></h1>
+
+<script>
+//con callback
+// setTimeout(function() { 
+//     escribe("I love You !!!"); 
+// }, 3000);
+
+// function escribe(value) {
+//   document.getElementById("demo").innerHTML = value;
+// }
+
+
+//con promesa
+let myPromise = new Promise(function(myResolve, myReject) {
+    setTimeout(() => { 
+        myResolve("I love You !!"); 
+    }, 5000);
+});
+   
+myPromise.then(
+    value => document.getElementById("demo").innerHTML = value
+    );
+</script>
+
+</body>
+</html>
